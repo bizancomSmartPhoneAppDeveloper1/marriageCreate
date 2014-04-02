@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface MainViewController : UIViewController
+- (IBAction)toCamera:(UIButton *)sender;
+- (IBAction)toSlideShow:(UIButton *)sender;
+- (IBAction)toSend:(UIButton *)sender;
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 teamInnovation. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainViewController.h"
 
-@interface ViewController ()
+@interface MainViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainViewController
 
 - (void)viewDidLoad
 {
@@ -26,4 +26,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)toCamera:(UIButton *)sender {
+}
+
+- (IBAction)toSlideShow:(UIButton *)sender {
+}
+
+- (IBAction)toSend:(UIButton *)sender {
+}
 @end
