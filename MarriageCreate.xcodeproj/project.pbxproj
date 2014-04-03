@@ -17,6 +17,11 @@
 		18216ED918EC6F9300C87109 /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18216ECF18EC6F9300C87109 /* ELCAssetTablePicker.xib */; };
 		18216EDA18EC6F9300C87109 /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 18216ED018EC6F9300C87109 /* Overlay.png */; };
 		18216EDB18EC6F9300C87109 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18216ED118EC6F9300C87109 /* Overlay@2x.png */; };
+		18216F0718ECF63C00C87109 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216EFE18ECF63C00C87109 /* Base64Transcoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18216F0818ECF63C00C87109 /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0018ECF63C00C87109 /* HSK_CFUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18216F0918ECF63C00C87109 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0218ECF63C00C87109 /* NSData+Base64Additions.m */; };
+		18216F0A18ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0418ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m */; };
+		18216F0B18ECF63C00C87109 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0618ECF63C00C87109 /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18C946BD18EC621100A14DBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946BC18EC621100A14DBE /* Foundation.framework */; };
 		18C946BF18EC621100A14DBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946BE18EC621100A14DBE /* CoreGraphics.framework */; };
 		18C946C118EC621100A14DBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946C018EC621100A14DBE /* UIKit.framework */; };
@@ -66,6 +71,16 @@
 		18216ECF18EC6F9300C87109 /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
 		18216ED018EC6F9300C87109 /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
 		18216ED118EC6F9300C87109 /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
+		18216EFD18ECF63C00C87109 /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		18216EFE18ECF63C00C87109 /* Base64Transcoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Transcoder.m; sourceTree = "<group>"; };
+		18216EFF18ECF63C00C87109 /* HSK_CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSK_CFUtilities.h; sourceTree = "<group>"; };
+		18216F0018ECF63C00C87109 /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
+		18216F0118ECF63C00C87109 /* NSData+Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		18216F0218ECF63C00C87109 /* NSData+Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		18216F0318ECF63C00C87109 /* NSStream+SKPSMTPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSStream+SKPSMTPExtensions.h"; sourceTree = "<group>"; };
+		18216F0418ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
+		18216F0518ECF63C00C87109 /* SKPSMTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPSMTPMessage.h; sourceTree = "<group>"; };
+		18216F0618ECF63C00C87109 /* SKPSMTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPSMTPMessage.m; sourceTree = "<group>"; };
 		18C946B918EC621100A14DBE /* MarriageCreate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarriageCreate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C946BC18EC621100A14DBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18C946BE18EC621100A14DBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,6 +164,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		18216EFC18ECF63C00C87109 /* SMTPLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				18216EFD18ECF63C00C87109 /* Base64Transcoder.h */,
+				18216EFE18ECF63C00C87109 /* Base64Transcoder.m */,
+				18216EFF18ECF63C00C87109 /* HSK_CFUtilities.h */,
+				18216F0018ECF63C00C87109 /* HSK_CFUtilities.m */,
+				18216F0118ECF63C00C87109 /* NSData+Base64Additions.h */,
+				18216F0218ECF63C00C87109 /* NSData+Base64Additions.m */,
+				18216F0318ECF63C00C87109 /* NSStream+SKPSMTPExtensions.h */,
+				18216F0418ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m */,
+				18216F0518ECF63C00C87109 /* SKPSMTPMessage.h */,
+				18216F0618ECF63C00C87109 /* SKPSMTPMessage.m */,
+			);
+			path = SMTPLibrary;
+			sourceTree = "<group>";
+		};
 		18C946B018EC621100A14DBE = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +214,7 @@
 		18C946C218EC621100A14DBE /* MarriageCreate */ = {
 			isa = PBXGroup;
 			children = (
+				18216EFC18ECF63C00C87109 /* SMTPLibrary */,
 				18216EBF18EC6F9300C87109 /* ELCImagePicker */,
 				18C946CB18EC621100A14DBE /* AppDelegate.h */,
 				18C946CC18EC621100A14DBE /* AppDelegate.m */,
@@ -343,14 +376,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18216F0818ECF63C00C87109 /* HSK_CFUtilities.m in Sources */,
 				18216ED418EC6F9300C87109 /* ELCAssetCell.m in Sources */,
 				18216ED218EC6F9300C87109 /* ELCAlbumPickerController.m in Sources */,
 				18216ED618EC6F9300C87109 /* ELCImagePickerController.m in Sources */,
+				18216F0718ECF63C00C87109 /* Base64Transcoder.m in Sources */,
 				18216ED518EC6F9300C87109 /* ELCAssetTablePicker.m in Sources */,
 				18216ED318EC6F9300C87109 /* ELCAsset.m in Sources */,
 				18C946F318EC62D700A14DBE /* SlideViewController.m in Sources */,
+				18216F0B18ECF63C00C87109 /* SKPSMTPMessage.m in Sources */,
 				18C946D318EC621100A14DBE /* MainViewController.m in Sources */,
+				18216F0918ECF63C00C87109 /* NSData+Base64Additions.m in Sources */,
 				18C946CD18EC621100A14DBE /* AppDelegate.m in Sources */,
+				18216F0A18ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m in Sources */,
 				18C946C918EC621100A14DBE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
