@@ -19,8 +19,8 @@
 		18216EDB18EC6F9300C87109 /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18216ED118EC6F9300C87109 /* Overlay@2x.png */; };
 		18216F0718ECF63C00C87109 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216EFE18ECF63C00C87109 /* Base64Transcoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18216F0818ECF63C00C87109 /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0018ECF63C00C87109 /* HSK_CFUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		18216F0918ECF63C00C87109 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0218ECF63C00C87109 /* NSData+Base64Additions.m */; };
-		18216F0A18ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0418ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m */; };
+		18216F0918ECF63C00C87109 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0218ECF63C00C87109 /* NSData+Base64Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18216F0A18ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0418ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18216F0B18ECF63C00C87109 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0618ECF63C00C87109 /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18C946BD18EC621100A14DBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946BC18EC621100A14DBE /* Foundation.framework */; };
 		18C946BF18EC621100A14DBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946BE18EC621100A14DBE /* CoreGraphics.framework */; };
