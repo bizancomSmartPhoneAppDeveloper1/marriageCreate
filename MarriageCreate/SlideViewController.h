@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XMLReader.h"
 
-@interface SlideViewController : UIViewController
+@interface SlideViewController : UIViewController<UIScrollViewDelegate>
+
+@property (nonatomic, strong) NSMutableArray *contentList;
+@property (nonatomic, retain) NSTimer* timer;
 
 @end

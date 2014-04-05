@@ -72,7 +72,7 @@
     NSLog(@"Start Sending");
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
     emailMessage.fromEmail = @"marriagecreate@gmail.com"; //送信者メールアドレス（Gmailのアカウント）
-    emailMessage.toEmail = @"sakakiichigo@gmail.com";                //宛先メールアドレス
+    emailMessage.toEmail = @"marriagecreate@yahoo.co.jp";                //宛先メールアドレス
     //emailMessage.ccEmail =@"cc@address";             //ccメールアドレス
     //emailMessage.bccEmail =@"bcc@address";         //bccメールアドレス
     emailMessage.requiresAuth = YES;

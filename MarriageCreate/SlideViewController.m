@@ -10,13 +10,10 @@
 
 @interface SlideViewController ()
 {
-    //RSSからの情報を格納
-    NSDictionary *rssDictionary;
-    
-    //RSS情報を格納したDictionary内からこの変数へ格納
-    NSMutableArray *rssTitle;
-    
+    BOOL autoScrollStopped;
 }
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @end
 
 @implementation SlideViewController
@@ -33,9 +30,60 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    [self xmlParser];
+    autoScrollStopped = NO;
+    
+//    [self stopAutoScroll];
+    
+	if ([self.timer isValid]) {
+		[self.timer invalidate];
+	}
+	self.timer = [NSTimer scheduledTimerWithTimeInterval:0.03
+												  target:self
+												selector:@selector(timerDidFire:)
+												userInfo:nil
+												 repeats:YES];
+//	[self restartAutoScrollAfterDelay];
+    
+    //写真Image格納用配列
+    _contentList = [NSMutableArray array];
+    
+    // 横スクロールバー非表示
+    _scrollView.showsHorizontalScrollIndicator = NO;
+    
+    [self webAccess];
+    
+    for (UIView *v in [_scrollView subviews]) {
+        [v removeFromSuperview];
+    }
+    
+	CGRect workingFrame = _scrollView.frame;
+	workingFrame.origin.x = 0;
+    
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[_contentList count]];
+	
+	for (int i = 0; i < _contentList.count; i++) {
+        UIImage *image = [_contentList objectAtIndex:i];
+        [images addObject:image];
+        
+		UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
+		[imageview setContentMode:UIViewContentModeScaleAspectFit];
+		imageview.frame = workingFrame;
+		
+		[_scrollView addSubview:imageview];
+		
+		workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
+	}
+	
+	[_scrollView setPagingEnabled:YES];
+	[_scrollView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
+    
+}
+
+//ステータスバーをOFF
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,19 +92,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-//xml読み込み
-- (void)xmlParser{
-    //XMLPaser処理、取り出した各String要素を対応した配列へ代入
-    NSString *rssUrl = [NSString stringWithFormat:@"http://ec2-54-249-105-134.ap-northeast-1.compute.amazonaws.com/?feed=rss2&page=2"];
-    NSURL *httpDataUrl = [NSURL URLWithString:rssUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:httpDataUrl];
-    NSData *xml_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSError *error;
-    //RSSの要素は複数あり、要素数分NSMutableArray配列へ格納
-    rssTitle = [NSMutableArray array];
-    rssDictionary = [XMLReader dictionaryForXMLData:xml_data error:&error];
-    rssTitle = [rssDictionary valueForKeyPath:@"rss.channel.item.content:encoded.text"];
-//    NSLog(@"%@ ------------------------------------ %@",rssDictionary,rssTitle[3]);
+- (void)webAccess{
+    for (int i = 0; i < 5; i++) {
+        //ランダム 17~22
+        NSInteger randInt = arc4random_uniform(5) + 17;
+        NSString *urlString = [NSString stringWithFormat:@"http://ec2-54-249-105-134.ap-northeast-1.compute.amazonaws.com/wp-content/uploads/2014/04/photo%ld.jpg",(long)randInt];
+        NSURL *imageUrl = [NSURL URLWithString:urlString];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
+        [_contentList addObject:[[UIImage alloc] initWithData:imageData]];
+    }
 }
 
+//自動スクロール開始
+- (void)timerDidFire:(NSTimer*)timer
+{
+	if (autoScrollStopped) {
+		return;
+	}
+    
+	CGPoint p = self.scrollView.contentOffset;
+	p.x = p.x + 1;
+    
+    CGRect aFrame = _scrollView.frame;
+    
+    //Imageの数だけ来ると自動スクロール停止
+	if (p.x < ((aFrame.size.width * _contentList.count)- aFrame.size.width)) {
+		self.scrollView.contentOffset = p;
+	}
+}
 @end
