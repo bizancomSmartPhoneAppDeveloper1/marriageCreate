@@ -11,6 +11,7 @@
 @interface SlideViewController ()
 {
     BOOL autoScrollStopped;
+    UINavigationBar *navBarTop;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -33,8 +34,6 @@
     
     autoScrollStopped = NO;
     
-//    [self stopAutoScroll];
-    
 	if ([self.timer isValid]) {
 		[self.timer invalidate];
 	}
@@ -43,7 +42,6 @@
 												selector:@selector(timerDidFire:)
 												userInfo:nil
 												 repeats:YES];
-//	[self restartAutoScrollAfterDelay];
     
     //写真Image格納用配列
     _contentList = [NSMutableArray array];

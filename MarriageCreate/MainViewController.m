@@ -148,7 +148,8 @@
 // E-Mail送信成功時にCallされる（成功時の処理をコーディングする）
 -(void)messageSent:(SKPSMTPMessage *)message
 {
-    NSLog(@"Gmail送信完了");
+    NSLog(@"送信完了");
+    [SVProgressHUD dismiss];
     //アラート表示
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Gmail送信完了" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
