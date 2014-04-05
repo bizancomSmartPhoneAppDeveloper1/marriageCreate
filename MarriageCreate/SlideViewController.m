@@ -9,7 +9,14 @@
 #import "SlideViewController.h"
 
 @interface SlideViewController ()
-
+{
+    //RSSからの情報を格納
+    NSDictionary *rssDictionary;
+    
+    //RSS情報を格納したDictionary内からこの変数へ格納
+    NSMutableArray *rssTitle;
+    
+}
 @end
 
 @implementation SlideViewController
@@ -27,6 +34,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self xmlParser];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,15 +44,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//xml読み込み
+- (void)xmlParser{
+    //XMLPaser処理、取り出した各String要素を対応した配列へ代入
+    NSString *rssUrl = [NSString stringWithFormat:@"http://ec2-54-249-105-134.ap-northeast-1.compute.amazonaws.com/?feed=rss2&page=2"];
+    NSURL *httpDataUrl = [NSURL URLWithString:rssUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:httpDataUrl];
+    NSData *xml_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSError *error;
+    //RSSの要素は複数あり、要素数分NSMutableArray配列へ格納
+    rssTitle = [NSMutableArray array];
+    rssDictionary = [XMLReader dictionaryForXMLData:xml_data error:&error];
+    rssTitle = [rssDictionary valueForKeyPath:@"rss.channel.item.content:encoded.text"];
+//    NSLog(@"%@ ------------------------------------ %@",rssDictionary,rssTitle[3]);
 }
-*/
 
 @end
