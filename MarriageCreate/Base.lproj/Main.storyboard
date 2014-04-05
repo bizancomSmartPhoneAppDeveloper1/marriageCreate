@@ -4,6 +4,46 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="VQG-BA-6zQ">
+            <objects>
+                <viewController id="lfk-ex-QnW" customClass="CameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fdN-Mh-HnI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xcc-LC-tbZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rx9-jk-Ftr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEL-tp-8Z4">
+                                <rect key="frame" x="145" y="31" width="30" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrow.png"/>
+                                <connections>
+                                    <segue destination="vXZ-lx-hvc" kind="modal" id="I9S-av-86B"/>
+                                </connections>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaF-7g-uvi">
+                                <rect key="frame" x="-13" y="512" width="369" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="camera.png" width="318" id="ZxQ-tr-tfA">
+                                        <connections>
+                                            <action selector="performCameraButtonAction:" destination="lfk-ex-QnW" id="SUL-QU-MGP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.013990319290000001" green="0.0027621913239999998" blue="0.0029271332719999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LZr-08-hmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-298" y="59"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -13,7 +53,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mmf-nw-Cs6">
@@ -28,6 +68,7 @@
                                 </state>
                                 <connections>
                                     <action selector="toCamera:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lcS-dz-HSQ"/>
+                                    <segue destination="lfk-ex-QnW" kind="modal" identifier="toCameraView" id="enL-UL-JJa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvT-Ic-FW5">
@@ -68,7 +109,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uqe-xE-YSa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tGa-Vz-nTb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -79,7 +120,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.png" width="40" height="40"/>
         <image name="back.png" width="640" height="1136"/>
+        <image name="camera.png" width="30" height="30"/>
         <image name="ic-photo.png" width="221" height="277"/>
         <image name="ic-send.png" width="199" height="277"/>
         <image name="ic-slide.png" width="217" height="277"/>
@@ -87,6 +130,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
