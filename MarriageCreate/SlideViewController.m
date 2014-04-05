@@ -78,6 +78,29 @@
 	[_scrollView setPagingEnabled:YES];
 	[_scrollView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
     
+    // ナビゲーションバーを生成
+    UINavigationBar* navBarTop = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    navBarTop.alpha = 0.7f;
+    
+    // ナビゲーションアイテムを生成
+    UINavigationItem *title = [[UINavigationItem alloc] initWithTitle:@""];
+    
+    // 戻るボタンを生成
+    UIBarButtonItem* rightItemBack = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(clickBack:)];
+    
+    // ナビゲーションアイテムの右側に戻るボタンを設置
+    title.rightBarButtonItem = rightItemBack;
+    
+    // ナビゲーションバーにナビゲーションアイテムを設置
+    [navBarTop pushNavigationItem:title animated:YES];
+    
+    // ビューにナビゲーションアイテムを設置
+    [self.view addSubview:navBarTop];
+    
+}
+
+- (IBAction)clickBack:(id)sender{
+    [self performSegueWithIdentifier:@"fromSlideView" sender:self];
 }
 
 //ステータスバーをOFF

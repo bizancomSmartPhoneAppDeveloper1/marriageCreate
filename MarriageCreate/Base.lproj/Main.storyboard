@@ -121,11 +121,13 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="vsH-Ah-9VK" id="Oxd-Me-rGv"/>
+                        <segue destination="DjD-JJ-gb0" kind="unwind" identifier="fromSlideView" unwindAction="mainViewReturnActionForSegue:" id="jD3-CG-RNZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8A0-PY-o86" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="DjD-JJ-gb0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="436" y="103"/>
+            <point key="canvasLocation" x="484" y="103"/>
         </scene>
     </scenes>
     <resources>
