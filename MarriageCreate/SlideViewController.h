@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMLReader.h"
 
 @interface SlideViewController : UIViewController
-// test1
+
 @end

@@ -72,7 +72,7 @@
     NSLog(@"Start Sending");
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
     emailMessage.fromEmail = @"marriagecreate@gmail.com"; //送信者メールアドレス（Gmailのアカウント）
-    emailMessage.toEmail = @"marriagecreate@yahoo.co.jp";                //宛先メールアドレス
+    emailMessage.toEmail = @"sakakiichigo@gmail.com";                //宛先メールアドレス
     //emailMessage.ccEmail =@"cc@address";             //ccメールアドレス
     //emailMessage.bccEmail =@"bcc@address";         //bccメールアドレス
     emailMessage.requiresAuth = YES;
@@ -86,75 +86,63 @@
     NSString *messageBody = @"ここ本文です"; //メール本文に記載する内容
     NSDictionary *plainMsg = [NSDictionary dictionaryWithObjectsAndKeys:@"text/plain",kSKPSMTPPartContentTypeKey, messageBody,kSKPSMTPPartMessageKey,@"8bit",kSKPSMTPPartContentTransferEncodingKey,nil];
     
+    //メールへの添付総まとめ配列（本文含む)
+    NSMutableArray *mailParts = [NSMutableArray array];
+    
+    //本文格納
+    [mailParts addObject:plainMsg];
+    
     switch (_images.count) {
         case 5:{
-            NSData *image_data = [NSKeyedArchiver archivedDataWithRootObject:[_images objectAtIndex:4]];
-            image_parts5 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                            @"inline;\r\n\tfilename=\"photo.jpg\"",kSKPSMTPPartContentDispositionKey,
-                            @"base64",kSKPSMTPPartContentTransferEncodingKey,
-                            @"image/jpg;\r\n\tname=photo.jpg;\r\n\t-unix-mode=0644;",kSKPSMTPPartContentTypeKey,
-                            [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
-                            nil];
+            NSData *image_data = UIImageJPEGRepresentation([_images objectAtIndex:4],1.0);
+            NSString *strFormat = [NSString stringWithFormat:@"image/jpg;\r\n\tx-unix-mode=0644;\r\n\tname=\"photo.jng\""];
+            NSString *strFormat2 = [NSString stringWithFormat:@"attachment;\r\n\tfilename=\"photo.jpg\""];
+            image_parts5 = [NSDictionary dictionaryWithObjectsAndKeys:strFormat,kSKPSMTPPartContentTypeKey,
+                            strFormat2,kSKPSMTPPartContentDispositionKey,[image_data encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
+            [mailParts addObject:image_parts5];
         }
         case 4:{
-            NSData *image_data = [NSKeyedArchiver archivedDataWithRootObject:[_images objectAtIndex:3]];
-            image_parts4 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                            @"inline;\r\n\tfilename=\"photo.jpg\"",kSKPSMTPPartContentDispositionKey,
-                            @"base64",kSKPSMTPPartContentTransferEncodingKey,
-                            @"image/jpg;\r\n\tname=photo.jpg;\r\n\t-unix-mode=0644;",kSKPSMTPPartContentTypeKey,
-                            [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
-                            nil];
+            NSData *image_data = UIImageJPEGRepresentation([_images objectAtIndex:3],1.0);
+            NSString *strFormat = [NSString stringWithFormat:@"image/jpg;\r\n\tx-unix-mode=0644;\r\n\tname=\"photo.jng\""];
+            NSString *strFormat2 = [NSString stringWithFormat:@"attachment;\r\n\tfilename=\"photo.jpg\""];
+            image_parts4 = [NSDictionary dictionaryWithObjectsAndKeys:strFormat,kSKPSMTPPartContentTypeKey,
+                            strFormat2,kSKPSMTPPartContentDispositionKey,[image_data encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
+            [mailParts addObject:image_parts4];
         }
         case 3:{
-            NSData *image_data = [NSKeyedArchiver archivedDataWithRootObject:[_images objectAtIndex:2]];
-            image_parts3 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                            @"inline;\r\n\tfilename=\"photo.jpg\"",kSKPSMTPPartContentDispositionKey,
-                            @"base64",kSKPSMTPPartContentTransferEncodingKey,
-                            @"image/jpg;\r\n\tname=photo.jpg;\r\n\t-unix-mode=0644;",kSKPSMTPPartContentTypeKey,
-                            [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
-                            nil];
+            NSData *image_data = UIImageJPEGRepresentation([_images objectAtIndex:2],1.0);
+            NSString *strFormat = [NSString stringWithFormat:@"image/jpg;\r\n\tx-unix-mode=0644;\r\n\tname=\"photo.jng\""];
+            NSString *strFormat2 = [NSString stringWithFormat:@"attachment;\r\n\tfilename=\"photo.jpg\""];
+            image_parts3 = [NSDictionary dictionaryWithObjectsAndKeys:strFormat,kSKPSMTPPartContentTypeKey,
+                            strFormat2,kSKPSMTPPartContentDispositionKey,[image_data encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
+            [mailParts addObject:image_parts3];
         }
             
         case 2:{
-            NSData *image_data = [NSKeyedArchiver archivedDataWithRootObject:[_images objectAtIndex:1]];
-            image_parts2 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                        @"inline;\r\n\tfilename=\"photo.jpg\"",kSKPSMTPPartContentDispositionKey,
-                                        @"base64",kSKPSMTPPartContentTransferEncodingKey,
-                                        @"image/jpg;\r\n\tname=photo.jpg;\r\n\t-unix-mode=0644;",kSKPSMTPPartContentTypeKey,
-                                        [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
-                                        nil];
+            NSData *image_data = UIImageJPEGRepresentation([_images objectAtIndex:1],1.0);
+            NSString *strFormat = [NSString stringWithFormat:@"image/jpg;\r\n\tx-unix-mode=0644;\r\n\tname=\"photo.jng\""];
+            NSString *strFormat2 = [NSString stringWithFormat:@"attachment;\r\n\tfilename=\"photo.jpg\""];
+            image_parts2 = [NSDictionary dictionaryWithObjectsAndKeys:strFormat,kSKPSMTPPartContentTypeKey,
+                            strFormat2,kSKPSMTPPartContentDispositionKey,[image_data encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
+            [mailParts addObject:image_parts2];
         }
         case 1:{
-            NSData *image_data = [NSKeyedArchiver archivedDataWithRootObject:[_images objectAtIndex:0]];
-            image_parts1 = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                        @"inline;\r\n\tfilename=\"photo.jpg\"",kSKPSMTPPartContentDispositionKey,
-                                        @"base64",kSKPSMTPPartContentTransferEncodingKey,
-                                        @"image/jpg;\r\n\tname=photo.jpg;\r\n\t-unix-mode=0644;",kSKPSMTPPartContentTypeKey,
-                                        [image_data encodeWrappedBase64ForData],kSKPSMTPPartMessageKey,
-                                        nil];
+            
+            NSData *image_data = UIImageJPEGRepresentation([_images objectAtIndex:0],1.0);
+            NSString *strFormat = [NSString stringWithFormat:@"image/jpg;\r\n\tx-unix-mode=0644;\r\n\tname=\"photo.jng\""];
+            NSString *strFormat2 = [NSString stringWithFormat:@"attachment;\r\n\tfilename=\"photo.jpg\""];
+            image_parts1 = [NSDictionary dictionaryWithObjectsAndKeys:strFormat,kSKPSMTPPartContentTypeKey,
+                            strFormat2,kSKPSMTPPartContentDispositionKey,[image_data encodeBase64ForData],kSKPSMTPPartMessageKey,@"base64",kSKPSMTPPartContentTransferEncodingKey,nil];
+            [mailParts addObject:image_parts1];
         }
             break;
     }
     
-    switch (_images.count) {
-        case 5:
-            emailMessage.parts = [NSArray arrayWithObjects:plainMsg,image_parts1,image_parts2,image_parts3,image_parts4,image_parts5,nil];
-            break;
-        case 4:
-            emailMessage.parts = [NSArray arrayWithObjects:plainMsg,image_parts1,image_parts2,image_parts3,image_parts4,nil];
-            break;
-        case 3:
-            emailMessage.parts = [NSArray arrayWithObjects:plainMsg,image_parts1,image_parts2,image_parts3,nil];
-            break;
-        case 2:
-            emailMessage.parts = [NSArray arrayWithObjects:plainMsg,image_parts1,image_parts2,nil];
-            break;
-        
-        case 1:
-            emailMessage.parts = [NSArray arrayWithObjects:plainMsg,image_parts1,nil];
-            break;
-    }
-        [emailMessage send];
+    //メールの添付情報プロパティへ格納
+    emailMessage.parts = mailParts;
+    
+    //メール送信
+    [emailMessage send];
 }
 
 // E-Mail送信成功時にCallされる（成功時の処理をコーディングする）
