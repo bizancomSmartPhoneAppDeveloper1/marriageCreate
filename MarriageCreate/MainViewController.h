@@ -11,6 +11,7 @@
 #import "ELCAlbumPickerController.h"
 #import "SKPSMTPMessage.h"
 #import "NSData+Base64Additions.h" // for Base64 encoding
+#import "SVProgressHUD.h"
 
 @interface MainViewController : UIViewController<ELCImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,SKPSMTPMessageDelegate>
 - (IBAction)toCamera:(UIButton *)sender;

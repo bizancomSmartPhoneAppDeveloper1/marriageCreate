@@ -22,6 +22,8 @@
 		18216F0918ECF63C00C87109 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0218ECF63C00C87109 /* NSData+Base64Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18216F0A18ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0418ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18216F0B18ECF63C00C87109 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0618ECF63C00C87109 /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		18216F7018F01CEE00C87109 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18216F6D18F01CEE00C87109 /* SVProgressHUD.bundle */; };
+		18216F7118F01CEE00C87109 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F6F18F01CEE00C87109 /* SVProgressHUD.m */; };
 		18C946BD18EC621100A14DBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946BC18EC621100A14DBE /* Foundation.framework */; };
 		18C946BF18EC621100A14DBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946BE18EC621100A14DBE /* CoreGraphics.framework */; };
 		18C946C118EC621100A14DBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946C018EC621100A14DBE /* UIKit.framework */; };
@@ -85,6 +87,10 @@
 		18216F0418ECF63C00C87109 /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
 		18216F0518ECF63C00C87109 /* SKPSMTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPSMTPMessage.h; sourceTree = "<group>"; };
 		18216F0618ECF63C00C87109 /* SKPSMTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPSMTPMessage.m; sourceTree = "<group>"; };
+		18216F6C18F01CEE00C87109 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		18216F6D18F01CEE00C87109 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		18216F6E18F01CEE00C87109 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		18216F6F18F01CEE00C87109 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		18C946B918EC621100A14DBE /* MarriageCreate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarriageCreate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C946BC18EC621100A14DBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		18C946BE18EC621100A14DBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -199,6 +205,17 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		18216F6B18F01CEE00C87109 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				18216F6C18F01CEE00C87109 /* SVProgressHUD-Prefix.pch */,
+				18216F6D18F01CEE00C87109 /* SVProgressHUD.bundle */,
+				18216F6E18F01CEE00C87109 /* SVProgressHUD.h */,
+				18216F6F18F01CEE00C87109 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		18C946B018EC621100A14DBE = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +253,7 @@
 				8731D39A18EE560F00C3F977 /* camera */,
 				18216EFC18ECF63C00C87109 /* SMTPLibrary */,
 				18216EBF18EC6F9300C87109 /* ELCImagePicker */,
+				18216F6B18F01CEE00C87109 /* SVProgressHUD */,
 				18C946CB18EC621100A14DBE /* AppDelegate.h */,
 				18C946CC18EC621100A14DBE /* AppDelegate.m */,
 				18C946CE18EC621100A14DBE /* Main.storyboard */,
@@ -390,6 +408,7 @@
 				18C946FC18EC677200A14DBE /* ic-send.png in Resources */,
 				18216ED718EC6F9300C87109 /* ELCAlbumPickerController.xib in Resources */,
 				8731D3A618EE74AE00C3F977 /* camera.png in Resources */,
+				18216F7018F01CEE00C87109 /* SVProgressHUD.bundle in Resources */,
 				18C946C718EC621100A14DBE /* InfoPlist.strings in Resources */,
 				18216ED818EC6F9300C87109 /* ELCAssetPicker.xib in Resources */,
 				18C946D018EC621100A14DBE /* Main.storyboard in Resources */,
@@ -421,6 +440,7 @@
 				18216ED518EC6F9300C87109 /* ELCAssetTablePicker.m in Sources */,
 				18216ED318EC6F9300C87109 /* ELCAsset.m in Sources */,
 				18C946F318EC62D700A14DBE /* SlideViewController.m in Sources */,
+				18216F7118F01CEE00C87109 /* SVProgressHUD.m in Sources */,
 				18216F0B18ECF63C00C87109 /* SKPSMTPMessage.m in Sources */,
 				18C946D318EC621100A14DBE /* MainViewController.m in Sources */,
 				18216F0918ECF63C00C87109 /* NSData+Base64Additions.m in Sources */,

@@ -10,6 +10,7 @@
 #import "ELCAsset.h"
 #import "ELCAssetSelectionDelegate.h"
 #import "ELCAssetPickerFilterDelegate.h"
+#import "SVProgressHUD.h"
 
 @interface ELCAssetTablePicker : UITableViewController <ELCAssetDelegate>
 

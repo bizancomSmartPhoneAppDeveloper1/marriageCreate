@@ -11,6 +11,7 @@
 @interface SlideViewController ()
 {
     BOOL autoScrollStopped;
+    UINavigationBar *navBarTop;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -33,8 +34,6 @@
     
     autoScrollStopped = NO;
     
-//    [self stopAutoScroll];
-    
 	if ([self.timer isValid]) {
 		[self.timer invalidate];
 	}
@@ -43,7 +42,6 @@
 												selector:@selector(timerDidFire:)
 												userInfo:nil
 												 repeats:YES];
-//	[self restartAutoScrollAfterDelay];
     
     //写真Image格納用配列
     _contentList = [NSMutableArray array];
@@ -79,7 +77,7 @@
 	[_scrollView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
     
     // ナビゲーションバーを生成
-    UINavigationBar* navBarTop = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    navBarTop = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     navBarTop.alpha = 0.7f;
     
     // ナビゲーションアイテムを生成
@@ -96,10 +94,9 @@
     
     // ビューにナビゲーションアイテムを設置
     [self.view addSubview:navBarTop];
-    
 }
 
-- (IBAction)clickBack:(id)sender{
+- (void)clickBack:(id)sender{
     [self performSegueWithIdentifier:@"fromSlideView" sender:self];
 }
 

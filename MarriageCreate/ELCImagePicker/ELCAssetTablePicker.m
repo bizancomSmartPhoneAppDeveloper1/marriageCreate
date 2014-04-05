@@ -113,7 +113,9 @@
 }
 
 - (void)doneAction:(id)sender
-{	
+{
+    //ローディング表示
+    [SVProgressHUD show];
 	NSMutableArray *selectedAssetsImages = [[NSMutableArray alloc] init];
 	    
 	for (ELCAsset *elcAsset in self.elcAssets) {
@@ -121,7 +123,9 @@
 			[selectedAssetsImages addObject:[elcAsset asset]];
 		}
 	}
-    [self.parent selectedAssets:selectedAssetsImages];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.parent selectedAssets:selectedAssetsImages];
+    });
 }
 
 
