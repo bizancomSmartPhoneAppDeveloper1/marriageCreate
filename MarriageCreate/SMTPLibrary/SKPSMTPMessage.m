@@ -330,7 +330,8 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
             uint8_t buf[1024];
             memset(buf, 0, sizeof(uint8_t) * 1024);
             unsigned int len = 0;
-            len = [(NSInputStream *)stream read:buf maxLength:1024];
+            //エラー対応のキャスト処理
+            len = (unsigned int)[(NSInputStream *)stream read:buf maxLength:1024];
             if(len) 
             {
                 NSString *tmpStr = [[NSString alloc] initWithBytes:buf length:len encoding:NSUTF8StringEncoding];
@@ -362,6 +363,9 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
             
             break;
         }
+        //エラーコード対応
+        default:
+        break;
     }
 }
             

@@ -80,7 +80,7 @@
     emailMessage.login = @"marriagecreate@gmail.com";         //ユーザ名（Gmailのアカウント）
     emailMessage.pass = @"QAZWSXedc";                       //パスワード（Gmailのアカウント）
     //2段階認証プロセスを利用する場合、アプリパスワードを使用する
-    emailMessage.subject =@"ここ件名です"; //件名に記載する内容
+    emailMessage.subject =@"Title"; //件名に記載する内容
     emailMessage.wantsSecure = YES;
     emailMessage.delegate = self;
     NSString *messageBody = @"ここ本文です"; //メール本文に記載する内容
@@ -92,6 +92,7 @@
     //本文格納
     [mailParts addObject:plainMsg];
     
+    //イメージピッカーでの選択数に応じて処理を分岐
     switch (_images.count) {
         case 5:{
             NSData *image_data = UIImageJPEGRepresentation([_images objectAtIndex:4],1.0);
@@ -151,7 +152,7 @@
     NSLog(@"送信完了");
     [SVProgressHUD dismiss];
     //アラート表示
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Gmail送信完了" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"送信完了" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
 }
 
@@ -160,10 +161,11 @@
 {
 //    NSLog(@"Gmail送信失敗 - error(%d): %@",[error code],[error localizedDescription]);
     //アラート表示
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Gmail送信失敗!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"送信失敗!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
 }
 
+//トップ画面への戻りメソッド
 - (IBAction)mainViewReturnActionForSegue:(UIStoryboardSegue *)segue
 {
     NSLog(@"top画面へ");
