@@ -24,7 +24,7 @@
                                     <segue destination="vXZ-lx-hvc" kind="modal" id="I9S-av-86B"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaF-7g-uvi">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IaF-7g-uvi">
                                 <rect key="frame" x="-13" y="512" width="369" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -38,6 +38,11 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IaF-7g-uvi" secondAttribute="trailing" constant="-36" id="Tcl-1A-3o2"/>
+                            <constraint firstItem="IaF-7g-uvi" firstAttribute="leading" secondItem="Rx9-jk-Ftr" secondAttribute="leading" constant="-13" id="jlz-0X-mIu"/>
+                            <constraint firstItem="Xcc-LC-tbZ" firstAttribute="top" secondItem="IaF-7g-uvi" secondAttribute="bottom" constant="12" id="zVC-Om-GEA"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZr-08-hmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,7 +132,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8A0-PY-o86" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="DjD-JJ-gb0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="484" y="103"/>
+=======
+            <point key="canvasLocation" x="412" y="13"/>
+>>>>>>> FETCH_HEAD
         </scene>
     </scenes>
     <resources>
