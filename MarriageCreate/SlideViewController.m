@@ -113,14 +113,35 @@
 }
 
 - (void)webAccess{
-    for (int i = 0; i < 5; i++) {
-        //ランダム 17~22
-        NSInteger randInt = arc4random_uniform(5) + 17;
+    int counter = 0;
+    while (counter < 10) {
+        NSLog(@"while %d",counter);
+        //ランダム 0~100
+        NSInteger randInt = arc4random_uniform(100) + 1;
         NSString *urlString = [NSString stringWithFormat:@"http://ec2-54-249-105-134.ap-northeast-1.compute.amazonaws.com/wp-content/uploads/2014/04/photo%ld.jpg",(long)randInt];
         NSURL *imageUrl = [NSURL URLWithString:urlString];
-        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-        [_contentList addObject:[[UIImage alloc] initWithData:imageData]];
+        NSURLRequest *imageUrlRequest = [NSURLRequest requestWithURL:imageUrl];
+        NSHTTPURLResponse *resp = nil;
+        NSError *error = nil;
+        NSData *imageData = [NSURLConnection sendSynchronousRequest:imageUrlRequest returningResponse:&resp error:&error];
+        NSLog(@"%ld",(long)resp.statusCode);
+        if (resp.statusCode != 200 && resp.statusCode != 404){
+            [self alertViewMethod];
+            break;
+        }if (resp.statusCode != 404){
+            [_contentList addObject:[[UIImage alloc] initWithData:imageData]];
+            counter++;
+        }
     }
+}
+
+- (void)alertViewMethod{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please Connect to Network"
+                                                    message:nil
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK",nil];
+    [alert show];
 }
 
 //自動スクロール開始
