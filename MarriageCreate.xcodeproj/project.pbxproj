@@ -24,7 +24,6 @@
 		18216F0B18ECF63C00C87109 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F0618ECF63C00C87109 /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		18216F7018F01CEE00C87109 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18216F6D18F01CEE00C87109 /* SVProgressHUD.bundle */; };
 		18216F7118F01CEE00C87109 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18216F6F18F01CEE00C87109 /* SVProgressHUD.m */; };
-		18216F8718FA4BA900C87109 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18216F8618FA4BA900C87109 /* Icon-60@2x.png */; };
 		18C946BD18EC621100A14DBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946BC18EC621100A14DBE /* Foundation.framework */; };
 		18C946BF18EC621100A14DBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946BE18EC621100A14DBE /* CoreGraphics.framework */; };
 		18C946C118EC621100A14DBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C946C018EC621100A14DBE /* UIKit.framework */; };
@@ -408,7 +407,6 @@
 				18216EDA18EC6F9300C87109 /* Overlay.png in Resources */,
 				8731D3A818EE7B6700C3F977 /* arrow.png in Resources */,
 				18216EDB18EC6F9300C87109 /* Overlay@2x.png in Resources */,
-				18216F8718FA4BA900C87109 /* Icon-60@2x.png in Resources */,
 				18C946FC18EC677200A14DBE /* ic-send.png in Resources */,
 				18216ED718EC6F9300C87109 /* ELCAlbumPickerController.xib in Resources */,
 				8731D3A618EE74AE00C3F977 /* camera.png in Resources */,
