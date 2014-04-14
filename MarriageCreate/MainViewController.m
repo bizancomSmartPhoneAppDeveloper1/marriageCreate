@@ -41,8 +41,12 @@
         [_images addObject:image];
 	}
     
-    //メール送信メソッド
-    [self sendEmailInBackground];
+    if (_images.count == 0) {
+        [SVProgressHUD dismiss];
+    } else {
+        //メール送信メソッド
+        [self sendEmailInBackground];
+    }
 }
 
 //ピッカーキャンセル時の処理
@@ -67,7 +71,7 @@
 }
 
 //E-Mailを送信する際にCallする
--(void) sendEmailInBackground
+-(void)sendEmailInBackground
 {
     NSLog(@"Start Sending");
     SKPSMTPMessage *emailMessage = [[SKPSMTPMessage alloc] init];
@@ -152,7 +156,7 @@
     NSLog(@"送信完了");
     [SVProgressHUD dismiss];
     //アラート表示
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"送信完了" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"connection succeeded" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
 }
 
@@ -161,7 +165,8 @@
 {
 //    NSLog(@"Gmail送信失敗 - error(%d): %@",[error code],[error localizedDescription]);
     //アラート表示
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"送信失敗!" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [SVProgressHUD dismiss];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"connection failed" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
 }
 
