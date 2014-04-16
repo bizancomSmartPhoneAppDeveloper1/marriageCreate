@@ -1,0 +1,7 @@
+# .gitignore
+**/*.xcodeproj/*
+!**/*.xcodeproj/project.pbxproj
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+!*.xcodeproj/default.*
+!**/*.xcodeproj/default.*
